@@ -1,0 +1,80 @@
+{
+	"abstract" : true,
+	"artifacts" : 
+	[
+		{
+			"path" : "C:/Users/admin/vcpkg/installed/x64-windows/debug/bin/gl3w.dll"
+		},
+		{
+			"path" : "C:/Users/admin/vcpkg/installed/x64-windows/debug/lib/gl3w.lib"
+		}
+	],
+	"backtrace" : 5,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"_add_library",
+			"add_library",
+			"_find_package",
+			"find_package"
+		],
+		"files" : 
+		[
+			"C:/Users/admin/vcpkg/scripts/buildsystems/vcpkg.cmake",
+			"C:/Users/admin/vcpkg/installed/x64-windows/share/gl3w/gl3wConfig.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 893,
+				"parent" : 1
+			},
+			{
+				"file" : 1,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 58,
+				"parent" : 3
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 639,
+				"parent" : 4
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "unofficial::gl3w::gl3w::@6890427a1f51a3e7e1df",
+	"imported" : true,
+	"local" : true,
+	"name" : "unofficial::gl3w::gl3w",
+	"nameOnDisk" : "gl3w.dll",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "SHARED_LIBRARY"
+}
