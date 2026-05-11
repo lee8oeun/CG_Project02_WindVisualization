@@ -1,15 +1,6 @@
 # ninja log v6
 13	780	8002166356032987	CMakeFiles/lab.dir/source/Viewer.cpp.obj	2514f25fbabc0fea
-18	962	8002166356083914	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
-8	1030	8002166355978080	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
-15	878	8002167059300068	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
-11	940	8002167059256345	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
-940	1843	8002167068550548	lab.exe	38afedebd4538f15
-15	874	8002167174012787	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
-11	935	8002167173981378	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
-16	864	8002167226493354	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
-11	930	8002167226440417	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
-930	1553	8002167235627871	lab.exe	38afedebd4538f15
-17	907	8002168299906396	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
-12	970	8002168299863330	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
-970	1806	8002168309446603	lab.exe	38afedebd4538f15
+15	893	8002177802551966	CMakeFiles/lab.dir/source/source.cpp.obj	6d73da8ac1effc8b
+26	1193	8002217129165402	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3
+1194	1872	8002217140844994	lab.exe	38afedebd4538f15
+7	1168	8002226763499026	CMakeFiles/lab.dir/source/MyGlWindow.cpp.obj	66e2b86d9f783fe3

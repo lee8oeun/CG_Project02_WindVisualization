@@ -38,6 +38,7 @@ void MyGlWindow::setupBuffer()
 	shaderProgram = std::make_unique<ShaderProgram>();
 	shaderProgram->initFromFiles("shaders/simple.vert", "shaders/simple.frag");
 
+
 	shaderProgram->addUniform("model");
 	shaderProgram->addUniform("view");
 	shaderProgram->addUniform("projection");

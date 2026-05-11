@@ -24,6 +24,8 @@ private:
 
 	int m_width;
 	int m_height;
+
+	GLuint vao, vbo;
 	
 	void setupBuffer();
 	void Init();

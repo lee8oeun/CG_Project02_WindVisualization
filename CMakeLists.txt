@@ -28,7 +28,7 @@ file(GLOB_RECURSE SOURCES
 include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/source")
 
 # Add source to this project's executable.
-add_executable(${PROJECT_NAME} ${SOURCES}  )
+add_executable(${PROJECT_NAME} ${SOURCES}   "source/Wind.cpp")
 
 target_link_libraries(${PROJECT_NAME} PRIVATE glm::glm glfw unofficial::gl3w::gl3w)
 
