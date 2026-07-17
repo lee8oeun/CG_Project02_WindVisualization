@@ -60,6 +60,17 @@ build CMakeFiles\lab.dir\source\MyGlWindow.cpp.obj: CXX_COMPILER__lab_unscanned_
   TARGET_PDB = lab.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\lab.dir
 
+build CMakeFiles\lab.dir\source\Sphere.cpp.obj: CXX_COMPILER__lab_unscanned_Debug C$:\Users\admin\OneDrive\Desktop\2026$ CG$ lab$ project\lee8oeun_project\Project02\source\Sphere.cpp || cmake_object_order_depends_target_lab
+  CONFIG = Debug
+  DEFINES = -DGLFW_DLL
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
+  INCLUDES = -I"C:\Users\admin\OneDrive\Desktop\2026 CG lab project\lee8oeun_project\Project02\source" -external:IC:\Users\admin\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = CMakeFiles\lab.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab.dir\source
+  TARGET_COMPILE_PDB = CMakeFiles\lab.dir\
+  TARGET_PDB = lab.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\lab.dir
+
 build CMakeFiles\lab.dir\source\Viewer.cpp.obj: CXX_COMPILER__lab_unscanned_Debug C$:\Users\admin\OneDrive\Desktop\2026$ CG$ lab$ project\lee8oeun_project\Project02\source\Viewer.cpp || cmake_object_order_depends_target_lab
   CONFIG = Debug
   DEFINES = -DGLFW_DLL
@@ -93,6 +104,17 @@ build CMakeFiles\lab.dir\source\source.cpp.obj: CXX_COMPILER__lab_unscanned_Debu
   TARGET_PDB = lab.pdb
   TARGET_SUPPORT_DIR = CMakeFiles\lab.dir
 
+build CMakeFiles\lab.dir\shaders\Program.cpp.obj: CXX_COMPILER__lab_unscanned_Debug C$:\Users\admin\OneDrive\Desktop\2026$ CG$ lab$ project\lee8oeun_project\Project02\shaders\Program.cpp || cmake_object_order_depends_target_lab
+  CONFIG = Debug
+  DEFINES = -DGLFW_DLL
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
+  INCLUDES = -I"C:\Users\admin\OneDrive\Desktop\2026 CG lab project\lee8oeun_project\Project02\source" -external:IC:\Users\admin\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = CMakeFiles\lab.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab.dir\shaders
+  TARGET_COMPILE_PDB = CMakeFiles\lab.dir\
+  TARGET_PDB = lab.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\lab.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab
@@ -101,7 +123,7 @@ build CMakeFiles\lab.dir\source\source.cpp.obj: CXX_COMPILER__lab_unscanned_Debu
 #############################################
 # Link the executable lab.exe
 
-build lab.exe: CXX_EXECUTABLE_LINKER__lab_Debug CMakeFiles\lab.dir\source\MyGlWindow.cpp.obj CMakeFiles\lab.dir\source\Viewer.cpp.obj CMakeFiles\lab.dir\source\Wind.cpp.obj CMakeFiles\lab.dir\source\source.cpp.obj | C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\glm.lib C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\glfw3dll.lib C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\gl3w.lib
+build lab.exe: CXX_EXECUTABLE_LINKER__lab_Debug CMakeFiles\lab.dir\source\MyGlWindow.cpp.obj CMakeFiles\lab.dir\source\Sphere.cpp.obj CMakeFiles\lab.dir\source\Viewer.cpp.obj CMakeFiles\lab.dir\source\Wind.cpp.obj CMakeFiles\lab.dir\source\source.cpp.obj CMakeFiles\lab.dir\shaders\Program.cpp.obj | C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\glm.lib C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\glfw3dll.lib C$:\Users\admin\vcpkg\installed\x64-windows\debug\lib\gl3w.lib
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console

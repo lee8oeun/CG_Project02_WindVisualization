@@ -4,8 +4,10 @@
 #include <iostream>
 #include <GL/gl3w.h>
 #include <string>
-#include "Loader.h"
+#include "../shaders/Program.h"
 #include "Viewer.h"
+#include "Wind.h"
+#include "Sphere.h"
 
 
 class MyGlWindow {
@@ -17,16 +19,16 @@ public:
 	void setSize(int w, int h) { m_width = w;m_height = h; }
 
 	Viewer* m_viewer;
-	
+	WindParticles* m_particle;
+	Sphere* m_sphere;
 private:
 
-	std::unique_ptr<ShaderProgram> shaderProgram;
+	std::unique_ptr<Program> shaderProgram;
+	std::unique_ptr<Program> ParticleShader;
 
 	int m_width;
 	int m_height;
 
-	GLuint vao, vbo;
-	
 	void setupBuffer();
 	void Init();
 

@@ -30,6 +30,72 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 
+static void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
+{
+	cx = xpos;
+	cy = ypos;
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	if (action == GLFW_PRESS) {
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+		m_lastMouseX = xpos;
+		m_lastMouseY = ypos;
+	}
+
+	if (button == GLFW_MOUSE_BUTTON_LEFT) {
+		if (GLFW_PRESS == action)
+			lbutton_down = true;
+		else if (GLFW_RELEASE == action)
+			lbutton_down = false;
+	}
+
+	else if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+		if (GLFW_PRESS == action)
+			rbutton_down = true;
+		else if (GLFW_RELEASE == action)
+			rbutton_down = false;
+	}
+
+	else if (button == GLFW_MOUSE_BUTTON_MIDDLE) {
+		if (GLFW_PRESS == action)
+			mbutton_down = true;
+		else if (GLFW_RELEASE == action)
+			mbutton_down = false;
+	}
+}
+
+
+void mouseDragging(double width, double height)
+{
+
+	if (lbutton_down) {
+		float fractionChangeX = static_cast<float>(cx - m_lastMouseX) / static_cast<float>(width);
+		float fractionChangeY = static_cast<float>(m_lastMouseY - cy) / static_cast<float>(height);
+
+
+		win->m_viewer->rotate(fractionChangeX, fractionChangeY);
+	}
+	else if (mbutton_down) {
+		float fractionChangeX = static_cast<float>(cx - m_lastMouseX) / static_cast<float>(width);
+		float fractionChangeY = static_cast<float>(m_lastMouseY - cy) / static_cast<float>(height);
+		win->m_viewer->zoom(fractionChangeY);
+	}
+	else if (rbutton_down) {
+		float fractionChangeX = static_cast<float>(cx - m_lastMouseX) / static_cast<float>(width);
+		float fractionChangeY = static_cast<float>(m_lastMouseY - cy) / static_cast<float>(height);
+		win->m_viewer->translate(-fractionChangeX, -fractionChangeY, 1);
+	}
+
+
+
+	m_lastMouseX = cx;
+	m_lastMouseY = cy;
+
+}
+
 int main(void)
 {
 
@@ -101,36 +167,41 @@ int main(void)
 	double lastTime = 0;
 
 	//콜백 함수정의 
-	glfwSetKeyCallback(window, key_callback);  //창 닫는 함수 
+
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+	glfwSetCursorPosCallback(window, cursor_pos_callback);
+	glfwSetKeyCallback(window, key_callback);
 
 
 	glfwSetWindowTitle(window, "Project02");
-
-
-
 	//***메인 루프***
 	while (!glfwWindowShouldClose(window))
 	{
 
 		// Rendering
-//		int display_w, display_h;
-//		glfwGetFramebufferSize(window, &display_w, &display_h);
-//		glViewport(0, 0, display_w, display_h);
-		glClearColor(0.2f, 0.2f, 0.2f, 0);  //백그라운드 컬러 설정 0<=r,g,b<=1 
-		glClear(GL_COLOR_BUFFER_BIT);
 
 
-		win->draw(); //1초에 최소 30번 돎. while문 안에 있어서 => draw함수에 버퍼 생성하면 x 낭비니까.  
+		glClearColor(0.3f, 0.3f, .3f, 0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
+		glEnable(GL_DEPTH_TEST);
+
+		int display_w, display_h;
+		glfwGetFramebufferSize(window, &display_w, &display_h);
+		glViewport(0, 0, display_w, display_h);
+
+
+		win->draw();   //그리기 !! 
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
 
 		/* Poll for and process events */
-		glfwPollEvents();    //이벤트 발생 확인, 발생하면 적절한 callback함수 호출 
+		glfwPollEvents();
 		//glfwWaitEvents();
 
-
+		mouseDragging(display_w, display_h);
 
 	}
 
