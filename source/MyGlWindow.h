@@ -19,7 +19,7 @@ public:
 	void setSize(int w, int h) { m_width = w;m_height = h; }
 
 	Viewer* m_viewer;
-	WindParticles* m_particle;
+	Wind* m_particle;
 	Sphere* m_sphere;
 private:
 

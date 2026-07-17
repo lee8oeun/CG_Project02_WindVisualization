@@ -89,7 +89,7 @@ void MyGlWindow::setupBuffer()
 		std::cerr << "Failed to load shader" << std::endl;
 		exit(1);
 	}
-	m_particle = new WindParticles();
+	m_particle = new Wind();
 	m_particle->initialize();
 
 	m_sphere = new Sphere(1.0f,36,18);
@@ -123,7 +123,6 @@ void MyGlWindow::draw(void)
 
 	shaderProgram->UnbindProgram();
 
-	m_particle->update(0.016f);  // 추가: compute shader 실행
 	ParticleShader->BindProgram();
 	ParticleShader->SetMatrix("mvp", mvpSphere);
 

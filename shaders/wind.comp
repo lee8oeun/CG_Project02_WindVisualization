@@ -1,47 +1,21 @@
-#version 430 core
+#version 430 core // 보통 430 이상 버전을 사용합니다.
 
-//워크그룹 하나당 스레드 256개 구성 
-layout(local_size_x = 256) in; 
-
+// [1] Workgroup 크기 설정 (병렬 처리를 위한 묶음 단위)
+layout(local_size_x = 32, local_size_y = 1, local_size_z = 1) in;
 struct Particle {
-    vec4 position;
-    vec4 velocity;
+        vec3 position; // C++ 구조체와 메모리 레이아웃을 정확히 맞춰야 합니다.
+    };
+
+// [2] SSBO (Shader Storage Buffer Object): CPU와 데이터를 주고받는 통로
+layout(std430, binding = 0) buffer ssbo {
+    
+    Particle particles[]; // 가변 배열
 };
-//cpu에서 넘긴 ssbo(binding=0)를 여기서 particles[] 배열로 읽음 
-layout(std430, binding = 0) buffer ParticleBuffer {
-    Particle particles[];
-};
 
-uniform float dt;
-
-//지구 중심, 반지름
-const vec3 CENTER = vec3(0.0, 0.0, 0.0);
-const float RADIUS = 1.02;
-const float SPEED = 0.1;
-
-void main()
-{
-    //스레드 번호 = 파티클 번호 -> 파티클 위치 읽어옴 
+void main() {
+    // [3] 현재 처리 중인 입자의 고유 ID (인덱스)
     uint id = gl_GlobalInvocationID.x;
-    vec3 pos = particles[id].position.xyz;
 
-    // 현재 파티클 위치에서 구의 normal 계산 (중심이 원점이기에 위치와 같음) 
-    vec3 normal = normalize(pos - CENTER);
-
-    // 바람 방향 생성
-    vec3 axis = vec3(0,1,0);
-    vec3 windDir = cross(axis, normal);  //위치와 바람 방향을 외적 -> 
-
- 
-    windDir = normalize(windDir);
-
-    // 파티클 이동
-    pos += windDir * SPEED * dt;
-
-    // 이동 후 다시 구 표면 위로 보정
-    normal = normalize(pos - CENTER);
-    pos = CENTER + normal * RADIUS;
-
-    particles[id].position.xyz = pos;
-    particles[id].velocity.xyz = windDir;
+    // [4] 데이터 처리 로직
+    particles[id].position.y += 10.0f; // 모든 입자를 위로 올림
 }
